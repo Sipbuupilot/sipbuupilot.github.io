@@ -1,7 +1,730 @@
-<!DOCTYPE html>
-<html>
+<html class="no-js" lang="en" dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dyno is a feature-rich and modular discord bot for your Discord server. With web configuration, moderation, anti-spam, auto roles, music, custom commands, and much more!">
+    <meta property="og:title" content="Dyno - The feature-rich Discord bot">
+<meta property="og:url" content="https://dyno.gg">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Dyno is a modular bot for your Discord server. With web dashboard, moderation, anti-spam, auto roles, music, custom commands, and much more!">
+<meta property="og:image" content="https://dyno.gg/images/v3/dyno-256.jpg?v=1.2.10">
+<meta property="og:image:alt" content="White diamond shaped Dyno logo with a light blue background">
+    <title>Dyno</title>
+    <link rel="shortcut icon" type="image/png" href="/images/v3/favicon.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-87DrmpqHRiY8hPLIr7ByqhPIywuSsjuQAfMXAE0sMUpY3BM7nXjf+mLIUSvhDArs" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/app.98fac1fafb279877f46958a8346c7d2e.css">
+    <!-- Google Tag Manager -->
+    <script src="https://cdn.iubenda.com/iubenda.js"></script><script src="https://cdn.iubenda.com/iubenda.js"></script><script src="https://cdn.iubenda.com/iubenda.js"></script><script src="https://cdn.iubenda.com/iubenda.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W6NZSRQ"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MFGKT6L"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFGKT6L');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Publisher Tags -->
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function() {
+            var mapping728x90ATF1 = googletag.sizeMapping().addSize([728, 0], [[728, 90], [970, 250], [970, 90], [728, 280]]).addSize([450, 0], [[728, 90], [320, 100], [320, 50]]).addSize([1, 0], [[320, 50], [320, 100]]).build();
+            var mapping300x250ATF1 = googletag.sizeMapping().addSize([320, 0], [[300, 250], [336, 280]]).addSize([1, 0], [[300, 250]]).build();
+            var gptAdSlots = [];
+            gptAdSlots[0] = googletag.defineSlot('/22280732/DynoGG_728x90_Other_ATF1', [[320, 50], [320, 100], [728, 90], [970, 90], [970, 250]], 'div-gpt-ad-1559171339966-0').defineSizeMapping(mapping728x90ATF1).addService(googletag.pubads());
+            gptAdSlots[1] = googletag.defineSlot('/22280732/DynoGG_300x250_Other_ATF1', [300, 250], 'div-gpt-ad-1559171433538-0').defineSizeMapping(mapping300x250ATF1).addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+    </script>
+    <!-- End Google Publisher Tags -->
+<style type="text/css">/**
+* React Select
+* ============
+* Created by Jed Watson and Joss Mackison for KeystoneJS, http://www.keystonejs.com/
+* https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
+* MIT License: https://github.com/JedWatson/react-select
+*/
+.Select {
+position: relative;
+}
+.Select input::-webkit-contacts-auto-fill-button,
+.Select input::-webkit-credentials-auto-fill-button {
+display: none !important;
+}
+.Select input::-ms-clear {
+display: none !important;
+}
+.Select input::-ms-reveal {
+display: none !important;
+}
+.Select,
+.Select div,
+.Select input,
+.Select span {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+.Select.is-disabled .Select-arrow-zone {
+cursor: default;
+pointer-events: none;
+opacity: 0.35;
+}
+.Select.is-disabled > .Select-control {
+background-color: #f9f9f9;
+}
+.Select.is-disabled > .Select-control:hover {
+box-shadow: none;
+}
+.Select.is-open > .Select-control {
+border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+background: #fff;
+border-color: #b3b3b3 #ccc #d9d9d9;
+}
+.Select.is-open > .Select-control .Select-arrow {
+top: -2px;
+border-color: transparent transparent #999;
+border-width: 0 5px 5px;
+}
+.Select.is-searchable.is-open > .Select-control {
+cursor: text;
+}
+.Select.is-searchable.is-focused:not(.is-open) > .Select-control {
+cursor: text;
+}
+.Select.is-focused > .Select-control {
+background: #fff;
+}
+.Select.is-focused:not(.is-open) > .Select-control {
+border-color: #007eff;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(0, 126, 255, 0.1);
+background: #fff;
+}
+.Select.has-value.is-clearable.Select--single > .Select-control .Select-value {
+padding-right: 42px;
+}
+.Select.has-value.Select--single > .Select-control .Select-value .Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+color: #333;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label {
+cursor: pointer;
+text-decoration: none;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+color: #007eff;
+outline: none;
+text-decoration: underline;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+background: #fff;
+}
+.Select.has-value.is-pseudo-focused .Select-input {
+opacity: 0;
+}
+.Select.is-open .Select-arrow,
+.Select .Select-arrow-zone:hover > .Select-arrow {
+border-top-color: #666;
+}
+.Select.Select--rtl {
+direction: rtl;
+text-align: right;
+}
+.Select-control {
+background-color: #fff;
+border-color: #d9d9d9 #ccc #b3b3b3;
+border-radius: 4px;
+border: 1px solid #ccc;
+color: #333;
+cursor: default;
+display: table;
+border-spacing: 0;
+border-collapse: separate;
+height: 36px;
+outline: none;
+overflow: hidden;
+position: relative;
+width: 100%;
+}
+.Select-control:hover {
+box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.Select-control .Select-input:focus {
+outline: none;
+background: #fff;
+}
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+bottom: 0;
+color: #aaa;
+left: 0;
+line-height: 34px;
+padding-left: 10px;
+padding-right: 10px;
+position: absolute;
+right: 0;
+top: 0;
+max-width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.Select-input {
+height: 34px;
+padding-left: 10px;
+padding-right: 10px;
+vertical-align: middle;
+}
+.Select-input > input {
+width: 100%;
+background: none transparent;
+border: 0 none;
+box-shadow: none;
+cursor: default;
+display: inline-block;
+font-family: inherit;
+font-size: inherit;
+margin: 0;
+outline: none;
+line-height: 17px;
+/* For IE 8 compatibility */
+padding: 8px 0 12px;
+/* For IE 8 compatibility */
+-webkit-appearance: none;
+}
+.is-focused .Select-input > input {
+cursor: text;
+}
+.has-value.is-pseudo-focused .Select-input {
+opacity: 0;
+}
+.Select-control:not(.is-searchable) > .Select-input {
+outline: none;
+}
+.Select-loading-zone {
+cursor: pointer;
+display: table-cell;
+position: relative;
+text-align: center;
+vertical-align: middle;
+width: 16px;
+}
+.Select-loading {
+-webkit-animation: Select-animation-spin 400ms infinite linear;
+-o-animation: Select-animation-spin 400ms infinite linear;
+animation: Select-animation-spin 400ms infinite linear;
+width: 16px;
+height: 16px;
+box-sizing: border-box;
+border-radius: 50%;
+border: 2px solid #ccc;
+border-right-color: #333;
+display: inline-block;
+position: relative;
+vertical-align: middle;
+}
+.Select-clear-zone {
+-webkit-animation: Select-animation-fadeIn 200ms;
+-o-animation: Select-animation-fadeIn 200ms;
+animation: Select-animation-fadeIn 200ms;
+color: #999;
+cursor: pointer;
+display: table-cell;
+position: relative;
+text-align: center;
+vertical-align: middle;
+width: 17px;
+}
+.Select-clear-zone:hover {
+color: #D0021B;
+}
+.Select-clear {
+display: inline-block;
+font-size: 18px;
+line-height: 1;
+}
+.Select--multi .Select-clear-zone {
+width: 17px;
+}
+.Select-arrow-zone {
+cursor: pointer;
+display: table-cell;
+position: relative;
+text-align: center;
+vertical-align: middle;
+width: 25px;
+padding-right: 5px;
+}
+.Select--rtl .Select-arrow-zone {
+padding-right: 0;
+padding-left: 5px;
+}
+.Select-arrow {
+border-color: #999 transparent transparent;
+border-style: solid;
+border-width: 5px 5px 2.5px;
+display: inline-block;
+height: 0;
+width: 0;
+position: relative;
+}
+.Select-control > *:last-child {
+padding-right: 5px;
+}
+.Select--multi .Select-multi-value-wrapper {
+display: inline-block;
+}
+.Select .Select-aria-only {
+position: absolute;
+display: inline-block;
+height: 1px;
+width: 1px;
+margin: -1px;
+clip: rect(0, 0, 0, 0);
+overflow: hidden;
+float: left;
+}
+@-webkit-keyframes Select-animation-fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+@keyframes Select-animation-fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+.Select-menu-outer {
+border-bottom-right-radius: 4px;
+border-bottom-left-radius: 4px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-top-color: #e6e6e6;
+box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+box-sizing: border-box;
+margin-top: -1px;
+max-height: 200px;
+position: absolute;
+left: 0;
+top: 100%;
+width: 100%;
+z-index: 1;
+-webkit-overflow-scrolling: touch;
+}
+.Select-menu {
+max-height: 198px;
+overflow-y: auto;
+}
+.Select-option {
+box-sizing: border-box;
+background-color: #fff;
+color: #666666;
+cursor: pointer;
+display: block;
+padding: 8px 10px;
+}
+.Select-option:last-child {
+border-bottom-right-radius: 4px;
+border-bottom-left-radius: 4px;
+}
+.Select-option.is-selected {
+background-color: #f5faff;
+/* Fallback color for IE 8 */
+background-color: rgba(0, 126, 255, 0.04);
+color: #333;
+}
+.Select-option.is-focused {
+background-color: #ebf5ff;
+/* Fallback color for IE 8 */
+background-color: rgba(0, 126, 255, 0.08);
+color: #333;
+}
+.Select-option.is-disabled {
+color: #cccccc;
+cursor: default;
+}
+.Select-noresults {
+box-sizing: border-box;
+color: #999999;
+cursor: default;
+display: block;
+padding: 8px 10px;
+}
+.Select--multi .Select-input {
+vertical-align: middle;
+margin-left: 10px;
+padding: 0;
+}
+.Select--multi.Select--rtl .Select-input {
+margin-left: 0;
+margin-right: 10px;
+}
+.Select--multi.has-value .Select-input {
+margin-left: 5px;
+}
+.Select--multi .Select-value {
+background-color: #ebf5ff;
+/* Fallback color for IE 8 */
+background-color: rgba(0, 126, 255, 0.08);
+border-radius: 2px;
+border: 1px solid #c2e0ff;
+/* Fallback color for IE 8 */
+border: 1px solid rgba(0, 126, 255, 0.24);
+color: #007eff;
+display: inline-block;
+font-size: 0.9em;
+line-height: 1.4;
+margin-left: 5px;
+margin-top: 5px;
+vertical-align: top;
+}
+.Select--multi .Select-value-icon,
+.Select--multi .Select-value-label {
+display: inline-block;
+vertical-align: middle;
+}
+.Select--multi .Select-value-label {
+border-bottom-right-radius: 2px;
+border-top-right-radius: 2px;
+cursor: default;
+padding: 2px 5px;
+}
+.Select--multi a.Select-value-label {
+color: #007eff;
+cursor: pointer;
+text-decoration: none;
+}
+.Select--multi a.Select-value-label:hover {
+text-decoration: underline;
+}
+.Select--multi .Select-value-icon {
+cursor: pointer;
+border-bottom-left-radius: 2px;
+border-top-left-radius: 2px;
+border-right: 1px solid #c2e0ff;
+/* Fallback color for IE 8 */
+border-right: 1px solid rgba(0, 126, 255, 0.24);
+padding: 1px 5px 3px;
+}
+.Select--multi .Select-value-icon:hover,
+.Select--multi .Select-value-icon:focus {
+background-color: #d8eafd;
+/* Fallback color for IE 8 */
+background-color: rgba(0, 113, 230, 0.08);
+color: #0071e6;
+}
+.Select--multi .Select-value-icon:active {
+background-color: #c2e0ff;
+/* Fallback color for IE 8 */
+background-color: rgba(0, 126, 255, 0.24);
+}
+.Select--multi.Select--rtl .Select-value {
+margin-left: 0;
+margin-right: 5px;
+}
+.Select--multi.Select--rtl .Select-value-icon {
+border-right: none;
+border-left: 1px solid #c2e0ff;
+/* Fallback color for IE 8 */
+border-left: 1px solid rgba(0, 126, 255, 0.24);
+}
+.Select--multi.is-disabled .Select-value {
+background-color: #fcfcfc;
+border: 1px solid #e3e3e3;
+color: #333;
+}
+.Select--multi.is-disabled .Select-value-icon {
+cursor: not-allowed;
+border-right: 1px solid #e3e3e3;
+}
+.Select--multi.is-disabled .Select-value-icon:hover,
+.Select--multi.is-disabled .Select-value-icon:focus,
+.Select--multi.is-disabled .Select-value-icon:active {
+background-color: #fcfcfc;
+}
+@keyframes Select-animation-spin {
+to {
+transform: rotate(1turn);
+}
+}
+@-webkit-keyframes Select-animation-spin {
+to {
+-webkit-transform: rotate(1turn);
+}
+}
+</style><style type="text/css">.guild-selector .Select-control,
+.guild-selector .Select-control .Select-input:focus,
+.guild-selector .Select.is-open > .Select-control,
+.guild-selector .Select.is-focused > .Select-control,
+.guild-selector .Select.is-focused:not(.is-open) > .Select-control,
+.guild-selector .Select-menu-outer,
+.guild-selector .Select-option {
+background: #3B3D43;
+background-color: #3B3D43;
+color: #fff;
+}
+
+
+.guild-selector .Select-control,
+.guild-selector .Select--multi .Select-value,
+.guild-selector .Select--multi .Select-value-icon,
+.guild-selector .Select.is-open > .Select-control,
+.guild-selector .Select.is-focused > .Select-control,
+.guild-selector .Select.is-focused:not(.is-open) > .Select-control {
+border-color: #555;
+}
+
+.guild-selector .Select-menu-outer {
+border-color: #555;
+}
+
+@media (max-width: 1200px) {
+.guild-selector {
+    width: 200px;
+    max-width: 200px;
+}
+}
+
+@media (max-width: 769px) {
+.guild-selector {
+    width: 200px;
+    max-width: 200px;
+}
+}
+
+/* #select-server {
+width: 200px;
+} */
+
+/* .select select
+background-color: $accent-background;
+color: $text;
+border: solid #555 1px;
+
+.server-select
+max-width: 200px;
+select
+    max-width: 200px; */</style><style type="text/css"></style><link id="iub_css" type="text/css" as="style" rel="stylesheet" href="https://cdn.iubenda.com/iubenda_badge.css" media="screen"><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style></head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+    
+    <nav id="navbar-mount"><nav class="navbar" role="navigation" aria-label="main navigation"><div class="navbar-brand columns is-vcentered"><div class="column navbar-burger-column"><a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></a></div><div class="column navbar-logo-column"><a class="navbar-item" href="/"><img class="navbar-logo" alt="White diamond shaped Dyno logo with Dyno written beside it in white" src="https://s.dyno.gg/web-assets/logo.png"></a></div><div class="column navbar-auth-column"><div class="is-hidden-desktop"><div class="navbar-item"><div class="buttons"><a class="level-item button is-info is-hidden-tablet touch-login-button" href="/auth" title="Login with Discord">Login</a><a class="level-item button is-info is-hidden-mobile touch-login-button" href="/auth" title="Login with Discord">Login with Discord</a></div></div></div></div></div><div class="navbar-menu"><div class="navbar-start"><div class="divider"></div><a class="navbar-item is-hidden-desktop" href="/account" title="Manage Server">Manage Server</a><a class="navbar-item" href="/bot" title="Dyno Bot">Dyno Bot</a><a class="navbar-item" href="/servers" title="Public Servers">Public Servers</a><a class="navbar-item" href="/discord" title="Dyno Discord Server" target="_blank">Join Our Discord</a><a class="navbar-item" href="/commands" title="Bot Commands">Commands</a><a class="navbar-item" href="https://wiki.dyno.gg" target="_blank" title="Wiki">Help</a><a class="navbar-item" href="/status" title="Dyno Status">Status</a><div class="navbar-item"><div class="buttons"><a class="button is-info is-outlined" href="/premium" title="Get Premium">Get Premium</a></div></div></div><div class="navbar-item"><div class="buttons"><a class="level-item button is-light" href="/invite" title="Add Dyno to your server"><strong>Add To Server</strong></a><a class="level-item button is-info" href="/auth" title="Login with Discord">Login with Discord</a></div></div></div></nav></nav>
+
+    <div class="page-wrapper">
+        <div class="page-home">
+<div class="container circles">
+    <div class="top-ad-container" style="display: flex; align-items: center; justify-content: center;">
+        <div id="div-gpt-ad-1559171339966-0">
+            <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559171339966-0'); });
+            </script>
+        </div>
+    </div>
+    <div class="home-description">
+        <img alt="White diamond shaped Dyno logo" class="home-logo" src="https://s.dyno.gg/web-assets/landing/logo.png">
+        <div class="description-title is-size-1">
+            The Discord Bot that does it all. Automatically
+        </div>
+        <div class="description-text is-size-5">
+            A fully customizable server moderation Discord bot for your Discord server that features a simple and intuitive web dashboard. Server management just got a whole lot easier.
+        </div>
+        <div class="description-buttons">
+            <a class="button is-light is-medium" href="https://discord.gg/dNCWqvN">Join us on Discord</a>
+            <a class="button is-info is-medium" href="/auth">Login with Discord</a>
+        </div>
+        <div class="columns is-centered">
+            <div class="is-4 description-popularity-text is-size-6">
+                Dyno is used on over <span class="has-text-primary"><script>document.write((5600304/1000000).toFixed(1))</script>5.6 million</span> servers, we invite you to try it out and hope you enjoy!
+            </div>
+            <div class="is-4">
+            </div>
+        </div>
+        <div class="description-mockup">
+            <img alt="Laptop frame with the Dyno dashboard rendered on it" class="product-mockup" src="https://s.dyno.gg/web-assets/landing/product-mockup.png">
+        </div>
+    </div>
+</div>
+<div class="container features-section">
+    <p class="is-size-3 has-text-centered">Features</p>
+    <h5 class="has-text-grey has-text-centered">What Dyno has to offer</h5>
+    <div class="features">
+        <div class="feature">
+            <img class="feature-card-icon" alt="Red icon ressembling a website window" src="https://s.dyno.gg/web-assets/landing/card1.png">
+            <h4 class="is-size-5">Dashboard</h4>
+            <div class="feature-body">
+                <p class="is-size-7">A feature-rich, configurable web dashboard. You can easily enable, disable, and configure everything.</p>
+            </div>
+        </div>
+        <div class="feature">
+            <img class="feature-card-icon" alt="Chat balloons" src="https://s.dyno.gg/web-assets/landing/card3.png">
+            <h4 class="is-size-5">Moderation</h4>
+            <div class="feature-body">
+                <p class="is-size-7">Moderation with mod logs, timed mutes and bans. Auto-moderation/anti-spam, fully configurable.</p>
+            </div>
+        </div>
+        <div class="feature">
+            <img class="feature-card-icon" alt="Plus icon" src="https://s.dyno.gg/web-assets/landing/card4.png">
+            <h4 class="is-size-5">Much More</h4>
+            <div class="feature-body">
+                <p class="is-size-7">Autoroles, Custom Commands, Announcements, Joinable Ranks, AFK Status, Reminders, and much more.</p>
+            </div>
+        </div>
+    </div>
+    <h3 class="is-size-3 has-text-secondary">Getting Started</h3>
+    <div class="getting-started">
+        <p class="has-text-grey">To get started with Dyno, login with discord and select the server that you would like to setup.</p>
+        
+        <a class="button is-info" href="/auth" title="Login with Discord">Login with Discord</a>
+    </div>
+</div>
+</div>
+    </div>
+
+    
+
+
+
+<footer class="footer">
+<div class="content is-hidden-mobile">
+  <div class="columns is-centered">
+        <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: left;">
+  <img class="footer-logo" src="https://s.dyno.gg/web-assets/footer/logo%402x.png">
+  <div class="social-text">
+    <h3>Get in Touch</h3>
+  </div>
+  <div class="social-icons">
+    <a class="social-link" href="https://discord.gg/8PW8rST">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/discord.png">
+    </a>
+    <a class="social-link" href="https://twitter.com/DynoDiscord">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/twitter.png">
+    </a>
+    <a class="social-link" href="mailto:team@dyno.gg">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/mail.png">
+    </a>
+  </div>
+  <span class="copyright-notice">
+    © <script>document.write(new Date().getFullYear())</script>2021 Solomid Corporation. All rights reserved.
+  </span>
+</div>
+        <div class="column is-12-mobile is-3-desktop" style="display: block; text-align: left;">
+  <div class="columns is-mobile">
+    <div class="column is-6">
+      <span class="footer-link-title">Dyno</span>
+      <a href="/bot" title="Dyno Bot" class="footer-link">Dyno Bot</a>
+      <a href="/servers" title="Public Servers" class="footer-link">Public Servers</a>
+      <a href="/commands" title="Bot Commands" class="footer-link">Bot Commands</a>
+      <a href="https://wiki.dyno.gg" title="Wiki" class="footer-link">Help</a>
+      <a href="/premium" title="Get Premium" class="footer-link">Get Premium</a>
+      <a href="/discord" title="Dyno Discord Server" class="footer-link">Dyno Discord Server</a>
+      <a href="/terms" title="Terms of Service" class="footer-link">Terms and Conditions</a>
+      <a href="https://www.iubenda.com/privacy-policy/21925808" class="footer-link iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+      <a href="https://www.iubenda.com/privacy-policy/21925808/cookie-policy" class="footer-link iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    </div>
+    <div class="column is-6">
+      <span class="footer-link-title">Blitz Network</span>
+      <a href="/" class="footer-link">Dyno by Blitz</a>
+      <a href="http://blitz.gg/" class="footer-link">Blitz for League</a>
+      <a href="http://blitz.gg/fortnite" class="footer-link">Blitz for Fortnite</a>
+    </div>
+  </div>
+</div>
+        <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: right;">
+    <div class="buttons">
+      <a class="button is-info is-outlined" href="/premium" title="Get Premium">
+        Get Premium
+      </a>
+    </div>
+</div>
+  </div>
+</div>
+<div class="content is-hidden-tablet">
+  <div class="columns is-mobile is-multiline">
+        <div class="column is-12-mobile is-3-desktop" style="display: block; text-align: left;">
+  <div class="columns is-mobile">
+    <div class="column is-6">
+      <span class="footer-link-title">Dyno</span>
+      <a href="/bot" title="Dyno Bot" class="footer-link">Dyno Bot</a>
+      <a href="/servers" title="Public Servers" class="footer-link">Public Servers</a>
+      <a href="/commands" title="Bot Commands" class="footer-link">Bot Commands</a>
+      <a href="https://wiki.dyno.gg" title="Wiki" class="footer-link">Help</a>
+      <a href="/premium" title="Get Premium" class="footer-link">Get Premium</a>
+      <a href="/discord" title="Dyno Discord Server" class="footer-link">Dyno Discord Server</a>
+      <a href="/terms" title="Terms of Service" class="footer-link">Terms and Conditions</a>
+      <a href="https://www.iubenda.com/privacy-policy/21925808" class="footer-link iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+      <a href="https://www.iubenda.com/privacy-policy/21925808/cookie-policy" class="footer-link iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    </div>
+    <div class="column is-6">
+      <span class="footer-link-title">Blitz Network</span>
+      <a href="/" class="footer-link">Dyno by Blitz</a>
+      <a href="http://blitz.gg/" class="footer-link">Blitz for League</a>
+      <a href="http://blitz.gg/fortnite" class="footer-link">Blitz for Fortnite</a>
+    </div>
+  </div>
+</div>
+        <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: left;">
+  <img class="footer-logo" src="https://s.dyno.gg/web-assets/footer/logo%402x.png">
+  <div class="social-text">
+    <h3>Get in Touch</h3>
+  </div>
+  <div class="social-icons">
+    <a class="social-link" href="https://discord.gg/8PW8rST">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/discord.png">
+    </a>
+    <a class="social-link" href="https://twitter.com/DynoDiscord">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/twitter.png">
+    </a>
+    <a class="social-link" href="mailto:team@dyno.gg">
+      <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/mail.png">
+    </a>
+  </div>
+  <span class="copyright-notice">
+    © <script>document.write(new Date().getFullYear())</script>2021 Solomid Corporation. All rights reserved.
+  </span>
+</div>
+        <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: right;">
+    <div class="buttons">
+      <a class="button is-info is-outlined" href="/premium" title="Get Premium">
+        Get Premium
+      </a>
+    </div>
+</div>
+  </div>
+</div>
+</footer>
+    <script src="/js/vendor/jquery.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6NZSRQ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFGKT6L"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script src="/js/vendor/base64.min.js"></script>
+    <script type="text/javascript">
+        var host = 'https://dyno.gg';
+    </script>
+        <script type="text/javascript" src="/js/react/navbar.aca8e745148e7d5d7df70f9b170616dd.js"></script>
+    <script src="/js/app.6954583f10b51c7b5c22a3ad4ab37688.js"></script>
+
+
+</body></html>
